@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AYVAZYANX - Google Search Results</title>
+    <title>AYVAZYANX</title>
     <style>
         body {
             background-color: #000;
@@ -17,18 +17,40 @@
             font-size: 3em;
             margin-top: 20px;
         }
-        .results {
+        form {
+            margin: 20px;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            background-color: #111;
+            color: #00ff00;
+            border: 1px solid #00ff00;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #00ff00;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #00cc00;
+        }
+        .links {
             margin: 20px;
             text-align: left;
             display: inline-block;
         }
-        .results a {
+        .links a {
             color: #00ff00;
             text-decoration: none;
             display: block;
-            margin: 10px 0;
+            margin: 5px 0;
         }
-        .results a:hover {
+        .links a:hover {
             text-decoration: underline;
         }
         .footer {
@@ -39,18 +61,27 @@
 </head>
 <body>
     <h1>AYVAZYANX</h1>
-    <p>Google Search Results:</p>
+    <p>Welcome to the old hacker's paradise.</p>
+    
+    <form action="https://www.google.com/search" method="get">
+        <input type="text" name="q" placeholder="Search Google..." required>
+        <input type="submit" value="Search">
+    </form>
 
-    <div class="results">
-        <h2>Search Results</h2>
-        <a href="https://superuser.com/questions/328271/how-to-disable-google-search-result-link-redirect-on-right-click-in-chrome" target="_blank">How to disable Google search result link redirect on right-click in Chrome</a>
-        <a href="https://blog.hubspot.com/website/html-redirect" target="_blank">Understanding HTML Redirects</a>
-        <a href="https://superuser.com/questions/328271/how-to-disable-google-search-result-link-redirect-on-right-click-in-chrome" target="_blank">Remove redirects from Google Search result links</a>
-        <a href="https://blog.hubspot.com/website/html-redirect" target="_blank">HTML Redirects Explained</a>
+    <div class="links">
+        <h2>Useful Links</h2>
+        <a href="https://www.hackthissite.org" target="_blank">Hack This Site</a>
+        <a href="https://www.cybrary.it" target="_blank">Cybrary</a>
+        <a href="https://www.khanacademy.org" target="_blank">Khan Academy</a>
+        <a href="https://www.codecademy.com" target="_blank">Codecademy</a>
+        <a href="https://www.w3schools.com" target="_blank">W3Schools</a>
+        <a href="https://www.exploit-db.com/google-hacking-database" target="_blank">Google Hacking Database</a>
+        <a href="https://www.torproject.org" target="_blank">TOR</a>
+        <a href="https://www.nmap.org" target="_blank">Nmap</a>
     </div>
 
     <div class="footer">
-        <p>&copy; 2024 AYVAZYANX. All rights reserved.</p>
+        <p>&copy; 2023 AYVAZYANX. All rights reserved.</p>
     </div>
 </body>
 </html>
