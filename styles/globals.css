@@ -1,1 +1,101 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  background-color: black; /* Dark background */
+  color: #00ff00; /* Green text */
+  font-family: 'Courier New', monospace; /* Monospaced font */
+  font-size: 16px;
+  line-height: 1.5;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  margin: 0;
+}
+
+/* Title Styling */
+h1 {
+  font-size: 3rem;
+  color: #00ff00;
+  text-shadow: 0 0 5px #00ff00;
+}
+
+/* Link Styling */
+a {
+  color: #00ff00;
+  text-decoration: none;
+  font-size: 1.2rem;
+  margin: 10px;
+  display: block;
+}
+
+a:hover {
+  color: #ffcc00;
+  text-decoration: underline;
+}
+
+/* Button Styling */
+button {
+  background-color: #00ff00;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+button:hover {
+  background-color: #ffcc00;
+  color: black;
+}
+
+/* Search Box */
+input[type="text"] {
+  background-color: #222;
+  color: #00ff00;
+  border: 2px solid #00ff00;
+  padding: 10px;
+  font-size: 1.2rem;
+  width: 100%;
+  max-width: 500px;
+  margin-top: 20px;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #ffcc00;
+}
+
+/* Footer Styling */
+footer {
+  position: absolute;
+  bottom: 10px;
+  color: #00ff00;
+  font-size: 0.9rem;
+}
+
+/* Favicon */
+link[rel="icon"] {
+  background-color: #00ff00;
+}
+
+/* Centering Content */
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
 
