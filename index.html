@@ -4,29 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AYVAZYANX - Secure Search Engine</title>
-    <link rel="icon" href="data:image/x-icon;base64,..." />
-    <link rel="stylesheet" href="styles/globals.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <header class="black-green-header">
+        <header>
             <h1>AYVAZYANX</h1>
             <p>Secure Search Engine</p>
         </header>
 
-        <div class="search-container">
-            <form id="searchForm">
-                <input type="text" id="searchQuery" placeholder="Enter search term..." required>
-                <button type="submit">Search</button>
-            </form>
-        </div>
+        <form id="searchForm">
+            <input type="text" id="searchQuery" placeholder="Enter search term..." required>
+            <button type="submit">Search</button>
+        </form>
 
-        <div id="results">
-            </div>
-
-        <footer class="black-green-footer">
-            <p>&copy; 2024 AYVAZYANX - A Secure Search Engine</p>
-        </footer>
+        <div id="results"></div>
     </div>
 
     <script>
@@ -35,85 +27,37 @@
             let query = document.getElementById("searchQuery").value;
 
             if (query) {
-                // Call the API to fetch search results
-                fetchResults(query);
+                // Use Google Custom Search Engine (replace 'YOUR_API_KEY' and 'YOUR_ENGINE_ID' with your actual API key and engine ID)
+                const googleCSEUrl = `https://www.googleapis.com/customsearch/v1?key=YOUR_API_KEY&cx=YOUR_ENGINE_ID&q=${encodeURIComponent(query)}`;
+
+                fetch(googleCSEUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        displayResults(data.items);
+                    })
+                    .catch(error => {
+                        console.error('Error fetching results:', error);
+                        document.getElementById("results").innerHTML = "<p>Error fetching results. Try again later.</p>";
+                    });
             }
         });
 
-        // Function to fetch search results from the backend (e.g., Bing API or custom search)
-        async function fetchResults(query) {
-            try {
-                let response = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
-                let data = await response.json();
-
-                if (data.results) {
-                    displayResults(data.results);
-                } else {
-                    document.getElementById("results").innerHTML = "<p>No results found.</p>";
-                }
-            } catch (error) {
-                console.error('Error fetching results:', error);
-                document.getElementById("results").innerHTML = "<p>Error fetching results. Try again later.</p>";
-            }
-        }
-
-        // Function to display the results in a visually appealing format
         function displayResults(results) {
-            let resultsContainer = document.getElementById("results");
-            resultsContainer.innerHTML = ""; // Clear previous results
+            const resultsContainer = document.getElementById("results");
+            resultsContainer.innerHTML = "";
 
             results.forEach(result => {
-                let resultElement = document.createElement("div");
+                const resultElement = document.createElement("div");
                 resultElement.classList.add("result");
 
                 resultElement.innerHTML = `
-                    <div class="result-header">
-                        <h3><a href="<span class="math-inline">\{result\.link\}" target\="\_blank"\></span>{result.title}</a></h3>
-                        <p class="result-description">${result.description}</p>
-                    </div>
+                    <h2><a href="${result.link}" target="_blank">${result.title}</a></h2>
+                    <p>${result.snippet}</p>
                 `;
 
                 resultsContainer.appendChild(resultElement);
             });
         }
     </script>
-
-    <style>
-        body {
-            background-color: #191919; /* Black background */
-            color: #C2C2C2; /* Light gray text */
-            font-family: sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .black-green-header,
-        .black-green-footer {
-            background-color: #2F4F4F; /* Dark green header and footer */
-            color: #fff; /* White text */
-            text-align: center;
-            padding: 15px;
-        }
-
-        h1 {
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-
-        .search-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        #searchQuery {
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size
+</body>
+</html>
