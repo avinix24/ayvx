@@ -39,6 +39,20 @@
         input[type="submit"]:hover {
             background-color: #00cc00;
         }
+        .links {
+            margin: 20px;
+            text-align: left;
+            display: inline-block;
+        }
+        .links a {
+            color: #00ff00;
+            text-decoration: none;
+            display: block;
+            margin: 5px 0;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
         .footer {
             margin-top: 50px;
             font-size: 0.8em;
@@ -48,10 +62,24 @@
 <body>
     <h1>AYVAZYANX</h1>
     <p>Welcome to the old hacker's paradise.</p>
+    
     <form action="https://www.google.com/search" method="get">
         <input type="text" name="q" placeholder="Search Google..." required>
         <input type="submit" value="Search">
     </form>
+
+    <div class="links">
+        <h2>Useful Links</h2>
+        <a href="https://www.hackthissite.org" target="_blank">Hack This Site</a>
+        <a href="https://www.cybrary.it" target="_blank">Cybrary</a>
+        <a href="https://www.khanacademy.org" target="_blank">Khan Academy</a>
+        <a href="https://www.codecademy.com" target="_blank">Codecademy</a>
+        <a href="https://www.w3schools.com" target="_blank">W3Schools</a>
+        <a href="https://www.reddit.com/r/netsec" target="_blank">r/netsec</a>
+        <a href="https://www.exploit-db.com" target="_blank">Exploit Database</a>
+        <a href="https://www.nmap.org" target="_blank">Nmap</a>
+    </div>
+
     <div class="footer">
         <p>&copy; 2023 AYVAZYANX. All rights reserved.</p>
     </div>
