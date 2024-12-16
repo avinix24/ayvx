@@ -1,0 +1,13 @@
+{
+  "name": "ayvazyanx",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "echo 'No build step for static site.'",
+    "start": "echo 'Start script not needed for static site.'"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "engines": {
+    "node": "16.x"
+  }
+}
