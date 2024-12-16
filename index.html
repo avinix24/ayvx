@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AYVAZYANX - Secure Search Engine">
+    <meta name="robots" content="noindex, nofollow">
+    <title>AYVAZYANX - Secure Search</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #0f0;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1 {
+            margin: 0;
+            padding: 10px;
+            font-size: 2.5em;
+        }
+        #search-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 1.2em;
+            border: 1px solid #0f0;
+            background-color: #111;
+            color: #0f0;
+            width: 60%;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border: 1px solid #0f0;
+            background-color: #111;
+            color: #0f0;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0f0;
+            color: #111;
+        }
+        .results {
+            margin-top: 20px;
+            width: 80%;
+            list-style: none;
+            padding: 0;
+        }
+        .results li {
+            margin-bottom: 15px;
+            background-color: #111;
+            padding: 10px;
+            border: 1px solid #0f0;
+        }
+        a {
+            color: #0f0;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>AYVAZYANX</h1>
+    <div id="search-container">
+        <input type="text" id="query" placeholder="Enter search query..." />
+        <button onclick="performSearch()">Search</button>
+    </div>
+
+    <ul id="search-results" class="results"></ul>
+
+    <script>
+        function performSearch() {
+            const query = document.getElementById('query').value;
+            if (query.trim() === "") {
+                alert("Please enter a search query.");
+                return;
+            }
+
+            // Redirect to Google search
+            const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+            window.open(googleSearchUrl, "_blank");
+
+            // Fetch Google search results (using a search API or web scraping tool)
+            // This can be done using server-side logic (e.g., with an API like SerpApi) 
+            // or a scraping tool to collect search results, then display them here.
+
+            // Dummy results for demonstration
+            const results = [
+                { title: "Example Result 1", link: "https://example.com", description: "Description of the result." },
+                { title: "Example Result 2", link: "https://example.com", description: "Another description." }
+            ];
+
+            const resultsContainer = document.getElementById('search-results');
+            resultsContainer.innerHTML = '';
+
+            results.forEach(result => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <h3><a href="${result.link}" target="_blank">${result.title}</a></h3>
+                    <p>${result.description}</p>
+                `;
+                resultsContainer.appendChild(li);
+            });
+        }
+    </script>
+
+</body>
+</html>
