@@ -3,80 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AYVAZYANX - Secure Search Engine</title>
-    <link rel="icon" href="data:image/x-icon;base64,..." />
-    <link rel="stylesheet" href="styles/globals.css">
+    <meta name="description" content="AYVAZYANX - Secure Search Engine">
+    <meta name="robots" content="noindex, nofollow">
+    <title>AYVAZYANX - Secure Search</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #0f0;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1 {
+            margin: 0;
+            padding: 10px;
+            font-size: 2.5em;
+        }
+        #search-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 1.2em;
+            border: 1px solid #0f0;
+            background-color: #111;
+            color: #0f0;
+            width: 60%;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border: 1px solid #0f0;
+            background-color: #111;
+            color: #0f0;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0f0;
+            color: #111;
+        }
+        .results {
+            margin-top: 20px;
+            width: 80%;
+            list-style: none;
+            padding: 0;
+        }
+        .results li {
+            margin-bottom: 15px;
+            background-color: #111;
+            padding: 10px;
+            border: 1px solid #0f0;
+        }
+        a {
+            color: #0f0;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>AYVAZYANX</h1>
-            <p>Secure Search Engine</p>
-        </header>
 
-        <!-- Search Form -->
-        <div class="search-container">
-            <form id="searchForm">
-                <input type="text" id="searchQuery" placeholder="Enter search term..." required>
-                <button type="submit">Search</button>
-            </form>
-        </div>
-
-        <!-- Results Display Section -->
-        <div id="results">
-            <!-- Links will be displayed here -->
-        </div>
-
-        <footer>
-            <p>&copy; 2024 AYVAZYANX - A Secure Search Engine</p>
-        </footer>
+    <h1>AYVAZYANX</h1>
+    <div id="search-container">
+        <input type="text" id="query" placeholder="Enter search query..." />
+        <button onclick="performSearch()">Search</button>
     </div>
 
+    <ul id="search-results" class="results"></ul>
+
     <script>
-        document.getElementById("searchForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            let query = document.getElementById("searchQuery").value;
-
-            if (query) {
-                // Call the API to fetch search results
-                fetchResults(query);
+        function performSearch() {
+            const query = document.getElementById('query').value;
+            if (query.trim() === "") {
+                alert("Please enter a search query.");
+                return;
             }
-        });
 
-        // Function to fetch search results from the backend (e.g., Bing API or custom search)
-        async function fetchResults(query) {
-            try {
-                let response = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
-                let data = await response.json();
+            // Redirect to Google search
+            const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+            window.open(googleSearchUrl, "_blank");
 
-                if (data.results) {
-                    displayResults(data.results);
-                } else {
-                    document.getElementById("results").innerHTML = "<p>No results found.</p>";
-                }
-            } catch (error) {
-                console.error('Error fetching results:', error);
-                document.getElementById("results").innerHTML = "<p>Error fetching results. Try again later.</p>";
-            }
-        }
+            // Fetch Google search results (using a search API or web scraping tool)
+            // This can be done using server-side logic (e.g., with an API like SerpApi) 
+            // or a scraping tool to collect search results, then display them here.
 
-        // Function to display the results
-        function displayResults(results) {
-            let resultsContainer = document.getElementById("results");
-            resultsContainer.innerHTML = ""; // Clear previous results
+            // Dummy results for demonstration
+            const results = [
+                { title: "Example Result 1", link: "https://example.com", description: "Description of the result." },
+                { title: "Example Result 2", link: "https://example.com", description: "Another description." }
+            ];
+
+            const resultsContainer = document.getElementById('search-results');
+            resultsContainer.innerHTML = '';
 
             results.forEach(result => {
-                let resultElement = document.createElement("div");
-                resultElement.classList.add("result");
-
-                resultElement.innerHTML = `
+                const li = document.createElement('li');
+                li.innerHTML = `
                     <h3><a href="${result.link}" target="_blank">${result.title}</a></h3>
                     <p>${result.description}</p>
                 `;
-
-                resultsContainer.appendChild(resultElement);
+                resultsContainer.appendChild(li);
             });
         }
     </script>
+
 </body>
 </html>
