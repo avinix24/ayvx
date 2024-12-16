@@ -9,12 +9,11 @@
 </head>
 <body>
     <div class="container">
-        <header>
+        <header class="black-green-header">
             <h1>AYVAZYANX</h1>
             <p>Secure Search Engine</p>
         </header>
 
-        <!-- Search Form -->
         <div class="search-container">
             <form id="searchForm">
                 <input type="text" id="searchQuery" placeholder="Enter search term..." required>
@@ -22,12 +21,10 @@
             </form>
         </div>
 
-        <!-- Results Display Section -->
         <div id="results">
-            <!-- Links will be displayed here -->
-        </div>
+            </div>
 
-        <footer>
+        <footer class="black-green-footer">
             <p>&copy; 2024 AYVAZYANX - A Secure Search Engine</p>
         </footer>
     </div>
@@ -60,7 +57,7 @@
             }
         }
 
-        // Function to display the results
+        // Function to display the results in a visually appealing format
         function displayResults(results) {
             let resultsContainer = document.getElementById("results");
             resultsContainer.innerHTML = ""; // Clear previous results
@@ -70,13 +67,53 @@
                 resultElement.classList.add("result");
 
                 resultElement.innerHTML = `
-                    <h3><a href="${result.link}" target="_blank">${result.title}</a></h3>
-                    <p>${result.description}</p>
+                    <div class="result-header">
+                        <h3><a href="<span class="math-inline">\{result\.link\}" target\="\_blank"\></span>{result.title}</a></h3>
+                        <p class="result-description">${result.description}</p>
+                    </div>
                 `;
 
                 resultsContainer.appendChild(resultElement);
             });
         }
     </script>
-</body>
-</html>
+
+    <style>
+        body {
+            background-color: #191919; /* Black background */
+            color: #C2C2C2; /* Light gray text */
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .black-green-header,
+        .black-green-footer {
+            background-color: #2F4F4F; /* Dark green header and footer */
+            color: #fff; /* White text */
+            text-align: center;
+            padding: 15px;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        #searchQuery {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size
