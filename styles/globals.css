@@ -1,101 +1,93 @@
-/* General Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Body Styling */
+/* globals.css */
 body {
-  background-color: black; /* Dark background */
-  color: #00ff00; /* Green text */
-  font-family: 'Courier New', monospace; /* Monospaced font */
-  font-size: 16px;
-  line-height: 1.5;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 0 20px;
-  margin: 0;
+    background-color: black;
+    color: #0f0;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
 }
 
-/* Title Styling */
 h1 {
-  font-size: 3rem;
-  color: #00ff00;
-  text-shadow: 0 0 5px #00ff00;
+    font-size: 3rem;
+    margin-bottom: 10px;
 }
 
-/* Link Styling */
-a {
-  color: #00ff00;
-  text-decoration: none;
-  font-size: 1.2rem;
-  margin: 10px;
-  display: block;
+p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
 }
 
-a:hover {
-  color: #ffcc00;
-  text-decoration: underline;
+.search-container {
+    margin-bottom: 20px;
 }
 
-/* Button Styling */
+#searchQuery {
+    width: 300px;
+    padding: 10px;
+    background-color: #111;
+    border: 1px solid #0f0;
+    color: #0f0;
+    font-size: 1rem;
+}
+
 button {
-  background-color: #00ff00;
-  color: black;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-top: 20px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #0f0;
+    border: 1px solid #0f0;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-left: 10px;
 }
 
 button:hover {
-  background-color: #ffcc00;
-  color: black;
+    background-color: #0f0;
+    color: black;
 }
 
-/* Search Box */
-input[type="text"] {
-  background-color: #222;
-  color: #00ff00;
-  border: 2px solid #00ff00;
-  padding: 10px;
-  font-size: 1.2rem;
-  width: 100%;
-  max-width: 500px;
-  margin-top: 20px;
+#results {
+    margin-top: 20px;
+    width: 80%;
+    max-width: 800px;
+    padding: 10px;
+    background-color: #111;
+    border-radius: 5px;
 }
 
-input[type="text"]:focus {
-  outline: none;
-  border-color: #ffcc00;
+.result {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: 1px solid #0f0;
 }
 
-/* Footer Styling */
+.result h3 {
+    font-size: 1.2rem;
+    margin: 5px 0;
+}
+
+.result p {
+    font-size: 1rem;
+    color: #aaa;
+}
+
+.result a {
+    color: #0f0;
+    text-decoration: none;
+}
+
+.result a:hover {
+    text-decoration: underline;
+}
+
 footer {
-  position: absolute;
-  bottom: 10px;
-  color: #00ff00;
-  font-size: 0.9rem;
+    position: fixed;
+    bottom: 10px;
+    font-size: 0.8rem;
+    color: #0f0;
 }
-
-/* Favicon */
-link[rel="icon"] {
-  background-color: #00ff00;
-}
-
-/* Centering Content */
-.container {
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 20px;
-}
-
